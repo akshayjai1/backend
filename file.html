@@ -1,0 +1,61 @@
+<link rel="stylesheet"
+	hrf="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css" />
+<link rel="stylesheet" hrf="https://unpkg.com/filepond/dist/filepond.min.css" />
+<!--
+The classic file input element we'll enhance to a file pond
+-->
+<input type="file" class="filepond" name="filepond" multiple data-max-file-size="3MB" data-max-files="3"
+	allowFileEncode="true" />
+
+<!-- file upload itself is disabled in this pen -->
+<style>
+	/**
+ * FilePond Custom Styles
+ */
+	.filepond--drop-label {
+		color: #4c4e53;
+	}
+
+	.filepond--label-action {
+		text-decoration-color: #babdc0;
+	}
+
+	.filepond--panel-root {
+		border-radius: 2em;
+		background-color: #edf0f4;
+		height: 1em;
+	}
+
+	.filepond--item-panel {
+		background-color: #595e68;
+	}
+
+	.filepond--drip-blob {
+		background-color: #7f8a9a;
+	}
+
+
+	/**
+ * Page Styles
+ */
+	html {
+		padding: 30vh 0 0;
+	}
+
+	body {
+		max-width: 20em;
+		margin: 0 auto;
+	}
+
+</style>
+
+<script type="text/javascript"
+	src="https://unpkg.com/filepond-plugin-file-encode@2.1.4/dist/filepond-plugin-file-encode.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/filepond@4.12.0/dist/filepond.min.js"></script>
+<script type="text/javascript"
+	src="https://unpkg.com/filepond-plugin-image-preview@4.6.1/dist/filepond-plugin-image-preview.min.js"></script>
+<script type="text/javascript"
+	src="https://unpkg.com/filepond-plugin-image-exif-orientation@1.0.6/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+<script type="text/javascript"
+	src="https://unpkg.com/filepond-plugin-file-validate-size@2.2.0/dist/filepond-plugin-file-validate-size.min.js"></script>
+<script type="text/javascript" src="./file.js"></script>
