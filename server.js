@@ -6,10 +6,10 @@ var multer = require('multer');
 var cors = require('cors');
 
 var app = express();
-app.use(bodyParser.urlencoded({extended: false}))
+// app.use(bodyParser.urlencoded({extended: false}))
 
 // parse application/json
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 var corsOptions = {
 	origin: '*',
 	optionsSuccessStatus: 200,
@@ -49,6 +49,24 @@ app.post('/api/photo', function(req, res) {
 		res.end("File is uploaded");
 	});
 });
+
+
+app.get('/api/detail', function (req, res)  {
+	console.log(req);
+	const { ControlA, ControlB } = req.query;
+	console.log(`ControlA = ${ControlA} and ControlB = ${ControlB}`);
+	res.end('submitted details successfully');
+
+})
+
+app.post('/api/detail', function (req, res)  {
+	console.log(req);
+	const { ControlA, ControlB } = req.body;
+	console.log(`ControlA = ${ControlA} and ControlB = ${ControlB}`);
+	res.end('submitted details successfully');
+
+})
+
 
 app.post('/app/64', function(req, res) {
 	var buf = new Buffer(req.body.base64String, 'base64');
