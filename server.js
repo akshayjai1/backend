@@ -1,15 +1,14 @@
 /**https://codeforgeek.com/file-uploads-using-node-js/ */
 var express = require("express");
 var fs = require('fs');
-var bodyParser = require('body-parser')
 var multer = require('multer');
 var cors = require('cors');
 
 var app = express();
-// app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.urlencoded())
 
 // parse application/json
-// app.use(bodyParser.json())
+app.use(express.json())
 var corsOptions = {
 	origin: '*',
 	optionsSuccessStatus: 200,
@@ -51,29 +50,30 @@ app.post('/api/photo', function(req, res) {
 });
 
 
-app.get('/api/detail', function (req, res)  {
+app.get('/api/detail', function(req, res) {
 	console.log(req);
-	const { ControlA, ControlB } = req.query;
+	const {ControlA, ControlB} = req.query;
 	console.log(`ControlA = ${ControlA} and ControlB = ${ControlB}`);
 	res.end('submitted details successfully');
 
 })
 
-app.post('/api/detail', function (req, res)  {
+app.post('/api/detail', function(req, res) {
 	console.log(req);
-	const { ControlA, ControlB } = req.body;
+	const {ControlA, ControlB} = req.body;
 	console.log(`ControlA = ${ControlA} and ControlB = ${ControlB}`);
 	res.end('submitted details successfully');
 
 })
 
 
-app.post('/app/64', function(req, res) {
+app.post('/app/image', function(req, res) {
 	var buf = new Buffer(req.body.base64String, 'base64');
-	fs.writeFile('image.png', buf, function(err) {
+	fs.writeFile('uploads/files/image.png', buf, function(err) {
 		if(err) throw err;
 		console.log('Saved!');
 	});
+	res.end('done');
 })
 
 app.listen(3004, function() {
