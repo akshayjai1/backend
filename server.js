@@ -5,7 +5,7 @@ var multer = require('multer');
 var cors = require('cors');
 
 var app = express();
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}))
 
 // parse application/json
 app.use(express.json())
