@@ -37,7 +37,7 @@ app.get('/file.js', function(req, res) {
 	res.sendFile(__dirname + "/file.js");
 });
 
-app.post('/api/photo', function(req, res) {
+app.post('/api/image', function(req, res) {
 	console.log('request arrived');
 	console.log(req);
 	upload(req, res, function(err) {
