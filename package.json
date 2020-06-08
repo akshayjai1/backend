@@ -4,13 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon serv.js",
+    "start-auth": "nodemon auth/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "assert": "^2.0.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "multer": "1.4.2"
+    "jsonwebtoken": "^8.5.1",
+    "multer": "1.4.2",
+    "twit": "^2.2.11",
+    "twitter-lite": "^0.13.0",
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "mocha": "~7.1.0",
