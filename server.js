@@ -43,6 +43,18 @@ app.get("/file.js", function (req, res) {
 app.post("/hidden", function (req, res) {
   res.end("form with hidden value submitted");
 });
+// post5
+app.post("/api/image", function (req, res) {
+  console.log("request arrived");
+  console.log(req);
+  upload(req, res, function (err) {
+    if (err) {
+      console.log(err);
+      return res.end("Error uploading file.");
+    }
+    res.end("File is uploaded");
+  });
+});
 //post2
 app.post("/api/file", function (req, res) {
   console.log("request arrived");
