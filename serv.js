@@ -1,11 +1,6 @@
 const Tw = require("twit");
-var express = require("express");
-var cors = require("cors");
-var app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-
+var app = require("./auth/twitter/exp");
+console.log("app", app);
 const conf = {
   consumer_key: "aVvBeJeBfkVGOfSPJEaRTGMQM",
   consumer_secret: "sCMCyrOQ5AIWt0g5pSlszyCUjm5vWAXa9QeT263lwhfQMMDpnD",
@@ -24,15 +19,9 @@ app.get("/getTweets", async function (req, res) {
       console.log("eror is ", error);
       res.send("there was an error fetching re");
     });
-
-  // try {
-  //   const response = await axios.get("/api/detail1");
-  //   console.log("response of detail 1", response);
-  // } catch (error) {
-  //   console.log("got error while fetching detail1");
-  // }
 });
-T.post(`statuses/update`, { status: body.text })
+// const status = Math.random();
+T.post(`statuses/update`, { status: "hi." })
   .then(console.log)
   .catch(console.log);
 app.post("/postTweet", (req, res) => {
@@ -49,6 +38,14 @@ app.post("/postTweet", (req, res) => {
       console.log("finally", res);
     });
 });
-app.listen(65500, function () {
-  console.log("Working on port 3005");
+const port = 65500;
+app.listen(port, function () {
+  console.log(`Working on port ${port}`);
 });
+
+// try {
+//   const response = await axios.get("/api/detail1");
+//   console.log("response of detail 1", response);
+// } catch (error) {
+//   console.log("got error while fetching detail1");
+// }
