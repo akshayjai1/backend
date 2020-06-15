@@ -7,12 +7,12 @@ module.exports.config = {
 module.exports.sessionConfig = {
   secret: "secret",
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
 };
 
 module.exports.twitterConfig = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_KEY_SECRET,
   callbackURL: "/api/twitter",
-  proxy: true,
 };
+// proxy: true,
