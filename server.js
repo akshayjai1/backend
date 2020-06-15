@@ -17,14 +17,15 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 var storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    console.log("file in destination", file);
-    callback(null, "./uploads/files");
-  },
-  filename: function (req, file, callback) {
-    console.log("file in filename", file);
-    callback(null, file.fieldname + "-" + Date.now());
-  },
+	destination: function(req, file, callback) {
+		console.log('file in destination', file);
+		callback(null, './uploads/files');
+	},
+	/**commented to remove double upload, will need to review */
+	filename: function(req, file, callback) {
+		console.log('file in filename', file);
+		callback(null, file.fieldname + '-' + Date.now());
+	}
 });
 var upload = multer({ storage: storage }).single("filepond");
 // g1
@@ -39,6 +40,23 @@ app.get("/file", function (req, res) {
 app.get("/file.js", function (req, res) {
   res.sendFile(__dirname + "/file.js");
 });
+
+
+app.post('/api/imagem', function(req, res) {
+	console.log(req);
+	console.log('request arrived');
+	res.end('good');
+})
+app.post('/api/image', function(req, res) {
+	console.log('request arrived');
+	console.log(req);
+	upload(req, res, function(err) {
+		if(err) {
+			console.log(err);
+			return res.end("Error uploading file.");
+		}
+		res.end("File is uploaded");
+	});
 //post1
 app.post("/hidden", function (req, res) {
   res.end("form with hidden value submitted");
