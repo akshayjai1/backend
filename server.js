@@ -5,7 +5,7 @@ var multer = require('multer');
 var cors = require('cors');
 
 var app = express();
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended: true}))
 
 // parse application/json
 app.use(express.json())
@@ -20,10 +20,10 @@ var storage = multer.diskStorage({
 		callback(null, './uploads/files');
 	},
 	/**commented to remove double upload, will need to review */
-	// filename: function(req, file, callback) {
-	// 	console.log('file in filename', file);
-	// 	callback(null, file.fieldname + '-' + Date.now());
-	// }
+	filename: function(req, file, callback) {
+		console.log('file in filename', file);
+		callback(null, file.fieldname + '-' + Date.now());
+	}
 });
 var upload = multer({storage: storage}).single('filepond');
 
@@ -37,6 +37,12 @@ app.get('/file.js', function(req, res) {
 	res.sendFile(__dirname + "/file.js");
 });
 
+
+app.post('/api/imagem', function(req, res) {
+	console.log(req);
+	console.log('request arrived');
+	res.end('good');
+})
 app.post('/api/image', function(req, res) {
 	console.log('request arrived');
 	console.log(req);
