@@ -1,17 +1,65 @@
 {
-	// Use IntelliSense to learn about possible attributes.
-	// Hover to view descriptions of existing attributes.
-	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Launch Program",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}/server.js"
-		}
-	]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/server.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TWT1",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/auth/twt1.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TWT2",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/auth/twt2.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "serv",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/serv.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "login",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/auth/twitter/routes.js"
+    },
+    {
+      "name": "backend Express",
+      "program": "${workspaceFolder}/auth/twitter/exp.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    },
+    {
+      "name": "backend npm express",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "debug"],
+      "runtimeExecutable": "npm st",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    },
+    {
+      "name": "Twitter Authentication",
+      "program": "${workspaceFolder}/twitter-auth/routes",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    }
+  ]
 }
