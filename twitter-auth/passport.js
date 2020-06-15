@@ -6,6 +6,7 @@ var { sessionConfig, twitterConfig } = require("./config");
 const app = require("./exp");
 
 function call(token, tokenSecret, profile, callback) {
+  console.log("token", token, tokenSecret);
   return callback(null, profile);
 }
 

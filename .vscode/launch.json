@@ -53,6 +53,13 @@
       "runtimeExecutable": "npm st",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
+    },
+    {
+      "name": "Twitter Authentication",
+      "program": "${workspaceFolder}/twitter-auth/routes",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
     }
   ]
 }
