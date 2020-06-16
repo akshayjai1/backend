@@ -9,4 +9,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const port = 3007;
+app.listen(port, function () {
+  console.log(`Working on port ${port}`);
+});
+
 module.exports = app;
