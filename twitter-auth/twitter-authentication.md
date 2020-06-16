@@ -12,4 +12,4 @@ npm run twitter-auth
 
 3. we use express-session library to maintain session in cookies. the sessionId is used to maintain connection
 
-4. 
+4. in routes.js we have defined the application routes, which our server responds to
