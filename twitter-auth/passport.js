@@ -1,32 +1,12 @@
-var passport = require("passport");
-var TwitterStrategy = require("passport-twitter").Strategy;
-var session = require("express-session");
-
-var { sessionConfig, twitterConfig } = require("./config");
+const passport = require("passport");
 const app = require("./exp");
-const { putUser } = require("./data");
 
-function setTwitterData(token, tokenSecret, profile, callback) {
-  console.log("token", token, tokenSecret);
-  putUser({
-    access_token: token,
-    access_token_secret: tokenSecret,
-    username: profile.username,
-  });
-  return callback(null, profile);
-}
-passport.serializeUser((user, callback) => {
-  console.log("in serializeUser", user);
-  callback(null, user);
-});
-passport.deserializeUser((obj, callback) => {
-  console.log("in deSerializeUser", obj);
-  callback(null, obj);
-});
+const { twitterStrategy } = require("./strategy");
+const { setSerializationLogic } = require("./serial");
 
-passport.use(new TwitterStrategy(twitterConfig, setTwitterData));
-
-app.use(session(sessionConfig));
+/** customize passport for app */
+setSerializationLogic(passport);
+passport.use(twitterStrategy);
 app.use(passport.initialize());
 app.use(passport.session());
 
