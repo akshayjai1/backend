@@ -1,13 +1,24 @@
 const app = require('./exp');
+require('./session');
 const passport = require('./passport');
 
-function loginTwitter(req, res) {
-  console.log('req is ', req);
-  res.send('success logged In');
-}
-app.get('/twitter/login', passport.authenticate('twitter'));
-app.get('/api/twitter', loginTwitter);
-const port = 3007;
-app.listen(port, function () {
-  console.log(`Working on port ${port}`);
+const {
+  handleTwitterLoginRedirect,
+  handleTwitterFailureRedirect,
+} = require('./routeHandlers');
+
+/** G1 serves index.html */
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/html/index.html');
 });
+/** G2 get's called when we click on login Using Twitter */
+app.get('/twitter/login', passport.authenticate('twitter'));
+
+/* G3 url which will be redirected by api.twitter.com on successful login */
+app.get(
+  '/twitter/loginSuccess',
+  passport.authenticate('twitter'),
+  handleTwitterLoginRedirect
+);
+
+// app.get("/twitter/loginFailure", handleTwitterFailureRedirect);

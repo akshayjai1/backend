@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 // parse application/json
 app.use(express.json());
 var corsOptions = {
-  origin: 'http://localhost:808',
-  // origin: "*",
+  // origin: "http://localhost:808",
+  origin: '*',
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
