@@ -1,4 +1,8 @@
 /**https://codeforgeek.com/file-uploads-using-node-js/ */
+var apm = require('elastic-apm-node').start({
+  serviceName: 'demoapp',
+  serverUrl: 'http://localhost:8200',
+});
 var express = require('express');
 var fs = require('fs');
 var multer = require('multer');
